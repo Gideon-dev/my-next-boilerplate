@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# 🚀 Getting Started — Choose Your Workflow
+
+This boilerplate supports **two intentional workflows** depending on how you want to use it.
+
+Read this once. It prevents 90% of Git mistakes.
+
+---
+
+## 🟢 Option 1: Clean Clone (Recommended)
+
+**Best if you want a fresh app with no connection to this boilerplate.**
+
+You get the code — **not the history**.
+
+### Steps
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Gideon-dev/my-next-boilerplate.git my-app
+cd my-app
+rm -rf .git
+git init
+git branch -M main
+git add .
+git commit -m "chore: bootstrap project"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create a new GitHub repo, then:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/my-app.git
+git push -u origin main
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### What this means
 
-## Learn More
+* ✅ Your app is fully yours
+* ✅ No accidental pushes to this repo
+* ✅ Clean commit history
+* ❌ No automatic updates from this boilerplate
 
-To learn more about Next.js, take a look at the following resources:
+This is the **safest default**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🟠 Option 2: Advanced Clone (Opt-in Updates)
 
-## Deploy on Vercel
+**Best if you want to receive future improvements intentionally.**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You keep a **read-only connection** to this boilerplate via `upstream`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Steps
+
+```bash
+git clone https://github.com/Gideon-dev/my-next-boilerplate.git my-app
+cd my-app
+git remote rename origin upstream
+```
+
+Create your own repo, then:
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/my-app.git
+git push -u origin main
+```
+
+### Pulling Updates Later
+
+When you *choose* to update:
+
+git fetch upstream
+git merge upstream/main
+
+
+
+### What this means
+
+* ✅ You own your app
+* ✅ Upstream is pull-only
+* ✅ Updates are opt-in
+* ❌ No automatic syncing
+
+---
+
+## 🔑 Important Concept: What is `upstream`?
+
+**`upstream` is the original source of the boilerplate.**
+
+You:
+
+* pull from it
+* never push to it
+* stay in control
+
+```text
+upstream (boilerplate) ──▶ your repo ──▶ production
+```
+
+If you didn’t create the repo, it’s **upstream**.
+
+---
+
+## 🚫 Things You Should NOT Do
+
+* Do not push to `upstream`
+* Do not expect automatic updates
+* Do not treat this as a dependency manager
+
+Git is the contract.
+
+---
+
+## ✅ Recommendation
+
+If you’re unsure, use **Clean Clone**.
+
+You can always reintroduce upstream later —
+you cannot easily remove coupling once added.
+
